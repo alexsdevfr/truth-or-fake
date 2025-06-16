@@ -1,46 +1,105 @@
-# Getting Started with Create React App
+# 🎮 Truth or Fake
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> **Projet réalisé dans le cadre du test technique React / TypeScript pour Base for Music.**
 
-## Available Scripts
+Ce mini-jeu permet à l'utilisateur de deviner si un conseil affiché est **réel** (provenant de l’API [Advice Slip](https://api.adviceslip.com/advice)) ou **faux** (issu d’une liste locale).
+L’application est construite avec **React**, **TypeScript** et **Mantine**.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🧰 Stack utilisée
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* ⚛️ React 18 + TypeScript
+* 🎨 Mantine UI v7
+* 💬 Mantine Notifications
+* 🌐 API : [Advice Slip](https://api.adviceslip.com/advice)
+* 📁 Fichier local `fakeAdvices.json` (faux conseils)
+* 🚫 Pas de base de données (tout est en mémoire)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## ⚙️ Installation & lancement
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Cloner le dépôt** :
 
-### `npm run build`
+```bash
+git clone https://github.com/alexsdevfr/truth-or-fake.git
+cd truth-or-fake
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Installer les dépendances** :
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Lancer l’application** :
 
-### `npm run eject`
+```bash
+npm run dev
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> L’application sera accessible sur `http://localhost:3000`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🎮 Règles du jeu
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* Le joueur commence avec **10 points**
+* À chaque tour :
 
-## Learn More
+  * Un conseil est affiché (réel ou faux)
+  * Le joueur choisit : ✅ « Vrai conseil » ou ❌ « Faux conseil »
+* **+1 point** si bonne réponse / **-1 point** sinon
+* **Victoire** à 20 points / **Défaite** à 0 point
+* Un bouton permet de **rejouer**
+* L’historique des **10 derniers conseils** est affiché
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🧠 Architecture technique
+
+* `App.tsx` : composant principal qui gère :
+
+  * L’état global (score, conseil, historique, chargement…)
+  * L’appel à l’API et au fichier `fakeAdvices.json`
+  * L’interface et les interactions
+* `public/fakeAdvices.json` : liste de 10 faux conseils
+* `@mantine/core` : composants visuels, mise en page (Stack, Center, Group…)
+* `@mantine/notifications` : affichage des notifications de réponse (bonne / mauvaise)
+
+---
+
+## 🚀 Fonctionnalités
+
+* Affichage **aléatoire** d’un conseil
+* Système de **score dynamique**
+* Fin de partie (victoire ou défaite)
+* **Notifications visuelles**
+* Historique des **10 dernières réponses**
+* **Bouton Rejouer**
+
+---
+
+## 🔧 Améliorations possibles
+
+* Ajouter des **animations** entre les tours (fade, transitions…)
+* Enregistrer le **meilleur score** avec `localStorage`
+* Ajouter une vraie gestion de **thème** (mode sombre, thème personnalisé)
+* Ajouter un bouton **« Voir la solution »** après chaque réponse
+* Améliorer la **version mobile** (responsive)
+
+---
+
+## 👤 Auteur
+
+**Alexis Soissons**
+Étudiant diplomé BTS SIO – Option SLAM
+Développeur débutant, motivé, passionné par le web et les projets concrets.
+
+---
+
+## 📩 Contact
+
+* 📧 [alexissoissons1@gmail.com](mailto:alexissoissons1@gmail.com)
+* 🔗 [GitHub – alexsdevfr](https://github.com/alexsdevfr)
